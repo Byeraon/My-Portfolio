@@ -1,0 +1,45 @@
+.menu {
+    margin-top: 1vh;
+    transform: rotate(90deg);
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 4vh;
+    z-index: 4;
+}
+
+.menu_item {
+    height: 4px;
+    background-color: #fff;
+    border-radius: 20%;
+}
+
+.clicked:hover .menu_top,
+.clicked:hover .menu_bottom {
+	width: 50px;
+}
+
+.menu_top {
+    width: 60%;
+    -webkit-transition: all 400ms linear;
+	-moz-transition: all 400ms linear;
+	-o-transition: all 400ms linear;
+	-ms-transition: all 400ms linear;
+	transition: all 400ms linear;
+}
+
+.menu_center {
+    width: 100%;
+}
+
+.menu_bottom {
+    width: 30%;
+    -webkit-transition: all 400ms linear;
+	-moz-transition: all 400ms linear;
+	-o-transition: all 400ms linear;
+	-ms-transition: all 400ms linear;
+	transition: all 400ms linear;
+}

@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #1f2029;
+  color: white;
+  font-size: large;
+}
+
+h1::selection,
+h2::selection {
+  color: black;
+  background-color: white;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contacts {
+  width: 100vw;
+  height: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .top_text {
+    font-size: 2vw;
+  }
+  h1 {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .top_text {
+    font-size: 4vw;
+  }
+  h1 {
+    font-size: 8vw;
+  }
+}
+
+:root {
+  --bg: #1a1e2d;
+  --green: #a5ea9b;
+  --pink: #ff61d8;
+  --blue: #569cfa;
+  --orange: #ffcc81;
+  --cyan: #7ed1e2;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg);
+  display: flex;
+  place-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.container_kitty {
+  z-index: -1;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container_kitty svg {
+  height: 360px;
+  width: 783px;
+  overflow: visible;
+}
+
+#bongo-cat {
+  fill: #1a1e2d;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+#bongo-cat .laptop-cover,
+.headphone.band {
+  fill: none;
+}
+
+#bongo-cat .paw,
+.head {
+  stroke: var(--orange);
+}
+
+#bongo-cat .laptop-keyboard {
+  stroke-width: 2;
+}
+
+#bongo-cat .terminal-code {
+  stroke-width: 5;
+}
+
+#bongo-cat .music .note,
+.laptop-base,
+.laptop-cover,
+.paw .pads {
+  stroke: var(--pink);
+}
+
+#bongo-cat .table line,
+.headphone .band,
+.headphone .speaker path:nth-child(3) {
+  stroke: var(--green);
+}
+#bongo-cat .terminal-frame,
+.laptop-keyboard,
+.headphone .speaker path:nth-child(2) {
+  stroke: var(--blue);
+}
+#bongo-cat .terminal-code,
+.headphone .speaker path:first-child {
+  stroke: var(--cyan);
+}
+
+#bongo-cat {
+  fill: #1a1e2d;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.linesd {
+  width: 0;
+}
+
+.animationLine {
+  animation: animLine 2s linear infinite;
+}
+
+@keyframes animLine {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-0.5%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(0.5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

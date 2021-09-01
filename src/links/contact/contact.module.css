@@ -1,0 +1,103 @@
+.all_place {
+    position: fixed;
+    z-index: 40;
+    width: 100%;
+    height: 100vw;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.tag {
+        animation: tagger .5s linear forwards;  
+    }
+
+@keyframes tagger {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+
+    }
+
+.backdropper {
+    animation: dropper .5s linear forwards;   
+}
+
+@keyframes dropper {
+    to {
+        opacity: 1;
+        backdrop-filter: blur(10px); 
+    }
+}
+
+.tag_out {
+    animation: tagger_out .5s linear forwards;  
+}
+
+@keyframes tagger_out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+
+}
+
+.backdropper_out {
+animation: dropper_out .5s linear forwards;   
+}
+
+@keyframes dropper_out {
+to {
+    opacity: 0;
+    backdrop-filter: blur(10px); 
+}
+}
+
+.not_card {
+    opacity: 0;
+    background-color: #00000011;;
+    z-index: 41;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(0px); 
+    
+}
+
+.card {
+    opacity: 0;
+    z-index: 45;
+    display: flex;
+    position: fixed;
+    width: 50vw;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.real_card {
+    width: 100%;
+    height: min-content;
+    background-color: #31323a;;
+    border-radius: 3vw;
+}
+
+.text {
+    font-size: 1vw;
+    z-index: 50;
+    margin: 2vw;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
