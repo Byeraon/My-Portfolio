@@ -8,43 +8,16 @@ import { Route, BrowserRouter } from "react-router-dom";
 import { Works } from "./site_parts/Works/works";
 
 function App() {
-  const [navIsActive, setActive] = useState(false);
-  const [cardIsActive, setCardActive] = useState(false);
-  const [menuClose, setClose] = useState(false);
-
-  let setMenu = () => {
-    if (navIsActive) {
-      setClose(true);
-    } else {
-      setActive(!navIsActive);
-      setClose(false);
-    }
-  };
-
-  let changeActive = () => {
-    setActive(!navIsActive);
-    setClose(false);
-  };
-
-  let setCard = () => {
-    setCardActive(!cardIsActive);
-  };
-
+  const [cardIsActive, setCard] = useState(false);
+  const [navIsActive, setNav] = useState(false);
   return (
     <div>
       <BrowserRouter>
-        {cardIsActive && <Contact setCard={setCard} isCard={cardIsActive} />}
-        {navIsActive && (
-          <Navigation
-            changeActive={changeActive}
-            menuClose={menuClose}
-            setMenu={setMenu}
-            isMenu={navIsActive}
-          ></Navigation>
-        )}
+        {cardIsActive && <Contact />}
+        {navIsActive && <Navigation isMenu={navIsActive}></Navigation>}
         <div className="App">
-          <Navbar isMenu={navIsActive} setMenu={setMenu}></Navbar>
-          <Route exact path="/" render={() => <Menu setCard={setCard} />} />
+          <Navbar setMenu={setNav} isMenu={navIsActive}></Navbar>
+          <Route exact path="/" render={() => <Menu />} />
           <Route path="/about" render={() => <div></div>}></Route>
           <Route path="/works" render={() => <Works />}></Route>
         </div>

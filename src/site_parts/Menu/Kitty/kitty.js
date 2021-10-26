@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import style from "./kitty.module.css";
 
 export let Kitty = () => {
   const [leftPaw, setLeft] = useState();

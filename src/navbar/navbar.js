@@ -26,7 +26,12 @@ export let Navbar = (props) => {
   }, [props.isMenu]);
 
   return (
-    <div onClick={props.setMenu} className={s.menu + " " + s.clicked}>
+    <div
+      onClick={() => {
+        props.setMenu((prevstate) => !prevstate);
+      }}
+      className={s.menu + " " + s.clicked}
+    >
       <span
         style={changeto}
         className={s.menu_top + " " + s.clicked + " " + s.menu_item}
