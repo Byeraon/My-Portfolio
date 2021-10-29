@@ -14,13 +14,20 @@ function App() {
     <div>
       <BrowserRouter>
         {cardIsActive && <Contact />}
-        {navIsActive && <Navigation isMenu={navIsActive}></Navigation>}
-        <div className="App">
+        <div style={{ zIndex: 2 }} className="App">
           <Navbar setMenu={setNav} isMenu={navIsActive}></Navbar>
           <Route exact path="/" render={() => <Menu />} />
           <Route path="/about" render={() => <div></div>}></Route>
           <Route path="/works" render={() => <Works />}></Route>
         </div>
+        <Navigation
+          style={
+            navIsActive
+              ? { zIndex: 3, display: "block", opacity: 1 }
+              : { zIndex: -10, opacity: 0 }
+          }
+          isMenu={navIsActive}
+        ></Navigation>
       </BrowserRouter>
     </div>
   );

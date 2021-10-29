@@ -15,6 +15,7 @@
 }
 
 .all_nav {
+  transition: 400ms all;
   width: 100vw;
 }
 
@@ -30,7 +31,7 @@ h3 {
   font-size: 5vw;
   margin: 3vh;
   margin-left: 3vw;
-  animation: showText 400ms linear forwards;
+  animation: showText 200ms linear forwards;
   margin-right: 1vw;
   z-index: 40;
   opacity: 0;
@@ -72,17 +73,21 @@ h3 {
   animation-delay: 0.6s;
 }
 
-.f {
-  animation-delay: 0.4s;
-}
-.s {
-  animation-delay: 0.5s;
-}
-.t {
-  animation-delay: 0.5s;
+.backgroundBlock {
+  position: absolute;
+  width: 0;
+  transition: 400ms all;
+  height: 0;
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  transition: 400ms all;
+  background-color: black;
 }
 
 .text_block {
+  top: 0;
   position: fixed;
   z-index: 3;
   height: min-content;
