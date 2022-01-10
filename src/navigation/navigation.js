@@ -6,6 +6,11 @@ export let Navigation = ({ setMenu, isMenu, changeActive, style }) => {
   const ParentElement = useRef();
   const First = useRef();
   const Second = useRef();
+  useEffect(() => {
+    ParentElement.current.style.transition = "0ms all";
+    ParentElement.current.style.top = "100%";
+    ParentElement.current.style.transition = "400ms all";
+  }, []);
   return (
     <div
       onTransitionEnd={(el) => {
@@ -51,7 +56,7 @@ export let Navigation = ({ setMenu, isMenu, changeActive, style }) => {
         ></div>
         <NavLink
           onClick={() => {
-            console.log("click");
+            setMenu(false);
           }}
           activeClassName={s.active}
           to="/about"
@@ -60,7 +65,7 @@ export let Navigation = ({ setMenu, isMenu, changeActive, style }) => {
         </NavLink>
         <NavLink
           onClick={() => {
-            console.log("click");
+            setMenu(false);
           }}
           activeClassName={s.active}
           exact
@@ -70,7 +75,7 @@ export let Navigation = ({ setMenu, isMenu, changeActive, style }) => {
         </NavLink>
         <NavLink
           onClick={() => {
-            console.log("click");
+            setMenu(false);
           }}
           activeClassName={s.active}
           to="/works"

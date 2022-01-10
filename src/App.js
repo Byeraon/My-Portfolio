@@ -16,7 +16,7 @@ function App() {
         {cardIsActive && <Contact />}
         <div style={{ zIndex: 2 }} className="App">
           <Navbar setMenu={setNav} isMenu={navIsActive}></Navbar>
-          <Route exact path="/" render={() => <Menu />} />
+          <Route exact path="/" render={() => <Menu isMenu={navIsActive} />} />
           <Route path="/about" render={() => <div></div>}></Route>
           <Route path="/works" render={() => <Works />}></Route>
         </div>
@@ -27,6 +27,7 @@ function App() {
               : { zIndex: -10, opacity: 0 }
           }
           isMenu={navIsActive}
+          setMenu={setNav}
         ></Navigation>
       </BrowserRouter>
     </div>

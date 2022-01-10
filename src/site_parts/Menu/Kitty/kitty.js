@@ -1,37 +1,39 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 
 export let Kitty = () => {
+  const history = useHistory();
   const [leftPaw, setLeft] = useState();
   const [mooth, setMooth] = useState();
   const [rightPaw, setRight] = useState();
   const [pawState, setState] = useState(true);
   const [arrayLines, setLines] = useState([
-    <line x1="260.2" y1="92.3" x2="212.2" y2="88.7"></line>,
-    <line x1="197.3" y1="87.5" x2="145.2" y2="83.5"></line>,
-    <line x1="251" y1="104.2" x2="223.4" y2="101.8"></line>,
-    <line x1="209.4" y1="100.5" x2="154.4" y2="95.6"></line>,
-    <line x1="256.4" y1="117.9" x2="227.5" y2="114.7"></line>,
-    <line x1="215.9" y1="113.4" x2="183.5" y2="109.8"></line>,
-    <line x1="169.1" y1="108.2" x2="142.9" y2="105.3"></line>,
-    <line x1="275.4" y1="132.8" x2="249.4" y2="129.6"></line>,
-    <line x1="234.4" y1="127.8" x2="197.3" y2="123.3"></line>,
-    <line x1="185.6" y1="121.9" x2="149.1" y2="117.5"></line>,
-    <line x1="261" y1="144.6" x2="244.5" y2="142.5"></line>,
-    <line x1="235.5" y1="141.3" x2="214.9" y2="138.7"></line>,
-    <line x1="203.4" y1="137.2" x2="180.4" y2="134.3"></line>,
-    <line x1="169.3" y1="132.9" x2="155.1" y2="131.1"></line>,
-    <line x1="264.7" y1="158.3" x2="221.9" y2="152.1"></line>,
-    <line x1="208.2" y1="150.1" x2="191.7" y2="147.7"></line>,
-    <line x1="291.3" y1="174.3" x2="268.8" y2="170.9"></line>,
-    <line x1="257.8" y1="169.2" x2="226.5" y2="164.4"></line>,
-    <line x1="217.3" y1="163" x2="185" y2="158.1"></line>,
-    <line x1="173.8" y1="156.4" x2="152.9" y2="153.2"></line>,
-    <line x1="278.5" y1="185.6" x2="257.3" y2="182.2"></line>,
-    <line x1="243.8" y1="179.9" x2="230.3" y2="177.7"></line>,
-    <line x1="216.5" y1="175.8" x2="196.7" y2="172.5"></line>,
-    <line x2="262.1" y2="196.1" x1="280.5" y1="199.2"></line>,
-    <line x2="213.8" y2="187.9" x1="251.1" y1="194.2"></line>,
-    <line x2="180.8" y2="182.3" x1="202.7" y1="186"></line>,
+    <line key="1" x1="260.2" y1="92.3" x2="212.2" y2="88.7"></line>,
+    <line key="2" x1="197.3" y1="87.5" x2="145.2" y2="83.5"></line>,
+    <line key="3" x1="251" y1="104.2" x2="223.4" y2="101.8"></line>,
+    <line key="4" x1="209.4" y1="100.5" x2="154.4" y2="95.6"></line>,
+    <line key="5" x1="256.4" y1="117.9" x2="227.5" y2="114.7"></line>,
+    <line key="6" x1="215.9" y1="113.4" x2="183.5" y2="109.8"></line>,
+    <line key="7" x1="169.1" y1="108.2" x2="142.9" y2="105.3"></line>,
+    <line key="8" x1="275.4" y1="132.8" x2="249.4" y2="129.6"></line>,
+    <line key="9" x1="234.4" y1="127.8" x2="197.3" y2="123.3"></line>,
+    <line key="10" x1="185.6" y1="121.9" x2="149.1" y2="117.5"></line>,
+    <line key="11" x1="261" y1="144.6" x2="244.5" y2="142.5"></line>,
+    <line key="12" x1="235.5" y1="141.3" x2="214.9" y2="138.7"></line>,
+    <line key="13" x1="203.4" y1="137.2" x2="180.4" y2="134.3"></line>,
+    <line key="14" x1="169.3" y1="132.9" x2="155.1" y2="131.1"></line>,
+    <line key="15" x1="264.7" y1="158.3" x2="221.9" y2="152.1"></line>,
+    <line key="16" x1="208.2" y1="150.1" x2="191.7" y2="147.7"></line>,
+    <line key="17" x1="291.3" y1="174.3" x2="268.8" y2="170.9"></line>,
+    <line key="18" x1="257.8" y1="169.2" x2="226.5" y2="164.4"></line>,
+    <line key="19" x1="217.3" y1="163" x2="185" y2="158.1"></line>,
+    <line key="20" x1="173.8" y1="156.4" x2="152.9" y2="153.2"></line>,
+    <line key="21" x1="278.5" y1="185.6" x2="257.3" y2="182.2"></line>,
+    <line key="22" x1="243.8" y1="179.9" x2="230.3" y2="177.7"></line>,
+    <line key="23" x1="216.5" y1="175.8" x2="196.7" y2="172.5"></line>,
+    <line key="24" x2="262.1" y2="196.1" x1="280.5" y1="199.2"></line>,
+    <line key="25" x2="213.8" y2="187.9" x1="251.1" y1="194.2"></line>,
+    <line key="26" x2="180.8" y2="182.3" x1="202.7" y1="186"></line>,
   ]);
 
   const getRandomIntInclusive = (min, max) => {
@@ -41,36 +43,17 @@ export let Kitty = () => {
   };
 
   const setBug = () => {
-    const index = getRandomIntInclusive(0, arrayLines.length - 1);
-    console.log(index);
-    const prevLine = arrayLines[index];
-    console.log(prevLine);
-    setLines(
-      arrayLines.map((i, ind) => {
-        if (i === prevLine) {
-          return (
-            <line
-              stroke="red"
-              x1={prevLine.props.x1}
-              y1={prevLine.props.y1}
-              x2={prevLine.props.x2}
-              y2={prevLine.props.y2}
-            ></line>
-          );
-        } else return i;
-      })
-    );
-    setMooth({
-      transform: "rotate(180deg) translateY(-105%) translateX(-108%)",
-    });
-    setTimeout(() => {
+    if (history.location.pathname === "/") {
+      const index = getRandomIntInclusive(0, arrayLines.length - 1);
+      const prevLine = arrayLines[index];
+
       setLines(
         arrayLines.map((i, ind) => {
           if (i === prevLine) {
             return (
               <line
-                className="animationLine"
-                stroke="orange"
+                key={ind + 100}
+                stroke="red"
                 x1={prevLine.props.x1}
                 y1={prevLine.props.y1}
                 x2={prevLine.props.x2}
@@ -80,14 +63,18 @@ export let Kitty = () => {
           } else return i;
         })
       );
+      setMooth({
+        transform: "rotate(180deg) translateY(-105%) translateX(-108%)",
+      });
       setTimeout(() => {
         setLines(
           arrayLines.map((i, ind) => {
             if (i === prevLine) {
-              setMooth();
               return (
                 <line
-                  stroke="rgb(82, 170, 74)"
+                  key={ind + 1000}
+                  className="animationLine"
+                  stroke="orange"
                   x1={prevLine.props.x1}
                   y1={prevLine.props.y1}
                   x2={prevLine.props.x2}
@@ -102,31 +89,54 @@ export let Kitty = () => {
             arrayLines.map((i, ind) => {
               if (i === prevLine) {
                 setMooth();
-                return prevLine;
+                return (
+                  <line
+                    key={ind + 3000}
+                    stroke="rgb(82, 170, 74)"
+                    x1={prevLine.props.x1}
+                    y1={prevLine.props.y1}
+                    x2={prevLine.props.x2}
+                    y2={prevLine.props.y2}
+                  ></line>
+                );
               } else return i;
             })
           );
-          setTimeout(setBug, getRandomIntInclusive(5000, 10000));
-        }, 500);
-      }, getRandomIntInclusive(2000, 3000));
-    }, getRandomIntInclusive(1000, 2000));
+          setTimeout(() => {
+            setLines(
+              arrayLines.map((i, ind) => {
+                if (i === prevLine) {
+                  setMooth();
+                  return prevLine;
+                } else return i;
+              })
+            );
+            setTimeout(setBug, getRandomIntInclusive(5000, 10000));
+          }, 500);
+        }, getRandomIntInclusive(2000, 3000));
+      }, getRandomIntInclusive(1000, 2000));
+    }
   };
 
   useEffect(() => {
-    const timer = () => {
-      setTimeout(() => {
-        setState((prev) => !prev);
-        timer();
-      }, 250);
-    };
-    timer();
-  }, []);
+    if (history.location.pathname === "/") {
+      const timer = () => {
+        setTimeout(() => {
+          setState((prev) => !prev);
+          timer();
+        }, 250);
+      };
+      timer();
+    }
+  }, [history.location.pathname]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setBug();
-    }, 1000);
-  }, []);
+    if (history.location.pathname === "/") {
+      setTimeout(() => {
+        setBug();
+      }, 1000);
+    }
+  }, [history.location.pathname]);
 
   useEffect(() => {
     const leftUp = (
