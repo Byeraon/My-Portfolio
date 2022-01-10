@@ -80,6 +80,7 @@ h3 {
   height: 0;
   border-radius: 50%;
   top: 50%;
+  overflow: hidden;
   transform: translate(-50%, -50%);
   left: 50%;
   transition: 400ms all;
@@ -89,6 +90,7 @@ h3 {
 .text_block {
   top: 0;
   position: fixed;
+  overflow: hidden;
   z-index: 3;
   height: min-content;
   width: 100vw;

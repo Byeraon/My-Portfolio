@@ -1,0 +1,53 @@
+button {
+  background: hsla(0, 0%, 95%, 0.97);
+  width: 120px;
+  height: 36px;
+  outline: none;
+  cursor: pointer;
+  transition: 200ms all;
+  color: #1a1e2d;
+  font-weight: 600;
+  opacity: 1;
+  float: right;
+  transform: rotate(0);
+  font-family: League Spartan, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  position: relative;
+  border: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.sending {
+  animation: rotate 3s linear infinite;
+  color: transparent;
+  width: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px dashed hsla(0, 0%, 95%, 0.97);
+  height: 36px;
+}
+
+.sended {
+  background: linear-gradient(270deg, #00e16f, #3f972f);
+  color: white;
+}
+
+.error {
+  background: linear-gradient(270deg, #f06449, #ef3636);
+  color: white;
+}
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
