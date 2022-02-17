@@ -5,7 +5,7 @@ export const MyInput = (props) => {
   return (
     <div className={style.inputed}>
       {props.name === "Message *" ? (
-        <textarea res value={props.value} onChange={props.onChange}></textarea>
+        <textarea value={props.value} onChange={props.onChange}></textarea>
       ) : (
         <input value={props.value} onChange={props.onChange}></input>
       )}
@@ -19,10 +19,10 @@ export const MyInput = (props) => {
                 ? { width: "100%" }
                 : {}
               : props.value.length > 0
-              ? props.validateEmail(props.value)
-                ? { width: "100%" }
-                : { width: "50%" }
-              : {}
+                ? props.validateEmail(props.value)
+                  ? { width: "100%" }
+                  : { width: "50%" }
+                : {}
           }
           className={style.doingLine}
         ></div>

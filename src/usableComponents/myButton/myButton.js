@@ -8,8 +8,8 @@ export const MyButton = (props) => {
         props.sended === "sending"
           ? style.sending
           : props.sended === "sended"
-          ? style.sended :
-          props.sended === "error"
+          ? style.sended
+          : props.sended === "error"
           ? style.error
           : ""
       }
@@ -17,7 +17,7 @@ export const MyButton = (props) => {
       onClick={props.onClick}
     >
       {props.sended === "sended"
-        ? "S E N D E D"
+        ? "S E N T"
         : props.sended === "error"
         ? "E R R O R"
         : "S E N D"}

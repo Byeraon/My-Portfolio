@@ -1,17 +1,14 @@
 .techBlock {
-  width: 400px;
   position: absolute;
   left: 50%;
+  display: flex;
+  transition: 400ms all;
+  flex-direction: row;
   transform: translate(-50%, 0);
   top: -10px;
   background-color: #1a1e2d;
   box-shadow: 0 20px 80px 0 rgb(0 0 0 / 55%);
   z-index: 1;
   height: 100px;
-}
-
-.techBlock div {
-  width: 25%;
-  height: 100%;
-  background: url(../../../react-redux.png);
+  justify-content: space-around;
 }

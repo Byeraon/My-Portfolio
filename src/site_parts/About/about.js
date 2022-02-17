@@ -28,6 +28,17 @@ export const About = () => {
   const db = firebase.firestore();
 
   useEffect(() => {
+    console.log("checkinmg");
+    db.collection("myTechs")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data());
+        });
+      });
+  }, [db]);
+
+  useEffect(() => {
     console.log(coffee);
   }, [coffee]);
 
@@ -102,6 +113,10 @@ export const About = () => {
           </p>
           <div className={style.catLine}></div>
           <div className={style.gameCat}>
+            <div className={style.backChooses}>
+              <div className={style.fightCat}>*Забрать у котика кофе :(*</div>
+              <div className={style.createCoffee}>*Сделать кофе*</div>
+            </div>
             <div className={style.cat}>(´｡• ω •｡)</div>
             <p className={style.catText}>
               {message}

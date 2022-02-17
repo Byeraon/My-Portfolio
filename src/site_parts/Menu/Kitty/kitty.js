@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 
 export let Kitty = () => {
   const history = useHistory();
+  const [mounted, setMount] = useState(true)
   const [leftPaw, setLeft] = useState();
   const [mooth, setMooth] = useState();
   const [rightPaw, setRight] = useState();
@@ -36,6 +37,13 @@ export let Kitty = () => {
     <line key="26" x2="180.8" y2="182.3" x1="202.7" y1="186"></line>,
   ]);
 
+  useEffect(() => {
+    setMount(true)
+    return () => {
+      setMount(false)
+    }
+  }, [])
+
   const getRandomIntInclusive = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -43,38 +51,18 @@ export let Kitty = () => {
   };
 
   const setBug = () => {
-    if (history.location.pathname === "/") {
-      const index = getRandomIntInclusive(0, arrayLines.length - 1);
-      const prevLine = arrayLines[index];
+    if (mounted) {
+      if (history.location.pathname === "/") {
+        const index = getRandomIntInclusive(0, arrayLines.length - 1);
+        const prevLine = arrayLines[index];
 
-      setLines(
-        arrayLines.map((i, ind) => {
-          if (i === prevLine) {
-            return (
-              <line
-                key={ind + 100}
-                stroke="red"
-                x1={prevLine.props.x1}
-                y1={prevLine.props.y1}
-                x2={prevLine.props.x2}
-                y2={prevLine.props.y2}
-              ></line>
-            );
-          } else return i;
-        })
-      );
-      setMooth({
-        transform: "rotate(180deg) translateY(-105%) translateX(-108%)",
-      });
-      setTimeout(() => {
         setLines(
           arrayLines.map((i, ind) => {
             if (i === prevLine) {
               return (
                 <line
-                  key={ind + 1000}
-                  className="animationLine"
-                  stroke="orange"
+                  key={ind + 100}
+                  stroke="red"
                   x1={prevLine.props.x1}
                   y1={prevLine.props.y1}
                   x2={prevLine.props.x2}
@@ -84,15 +72,18 @@ export let Kitty = () => {
             } else return i;
           })
         );
+        setMooth({
+          transform: "rotate(180deg) translateY(-105%) translateX(-108%)",
+        });
         setTimeout(() => {
           setLines(
             arrayLines.map((i, ind) => {
               if (i === prevLine) {
-                setMooth();
                 return (
                   <line
-                    key={ind + 3000}
-                    stroke="rgb(82, 170, 74)"
+                    key={ind + 1000}
+                    className="animationLine"
+                    stroke="orange"
                     x1={prevLine.props.x1}
                     y1={prevLine.props.y1}
                     x2={prevLine.props.x2}
@@ -107,16 +98,36 @@ export let Kitty = () => {
               arrayLines.map((i, ind) => {
                 if (i === prevLine) {
                   setMooth();
-                  return prevLine;
+                  return (
+                    <line
+                      key={ind + 3000}
+                      stroke="rgb(82, 170, 74)"
+                      x1={prevLine.props.x1}
+                      y1={prevLine.props.y1}
+                      x2={prevLine.props.x2}
+                      y2={prevLine.props.y2}
+                    ></line>
+                  );
                 } else return i;
               })
             );
-            setTimeout(setBug, getRandomIntInclusive(5000, 10000));
-          }, 500);
-        }, getRandomIntInclusive(2000, 3000));
-      }, getRandomIntInclusive(1000, 2000));
+            setTimeout(() => {
+              setLines(
+                arrayLines.map((i, ind) => {
+                  if (i === prevLine) {
+                    setMooth();
+                    return prevLine;
+                  } else return i;
+                })
+              );
+              setTimeout(setBug, getRandomIntInclusive(5000, 10000));
+            }, 500);
+          }, getRandomIntInclusive(2000, 3000));
+        }, getRandomIntInclusive(1000, 2000));
+      }
     }
   };
+
 
   useEffect(() => {
     if (history.location.pathname === "/") {
